@@ -29,7 +29,7 @@ export class QualificationsComponent implements OnInit {
       issuer: 'EF Standard English Test (EF SET)',
       level: 'C1 Advanced',
       dateAchieved: '2024', // Optional
-      description: 'Achieved a C1 Advanced level on the EF SET, demonstrating a high proficiency in English قادر على understanding a wide range of demanding, longer texts, and recognizing implicit meaning. Can express him/herself fluently and spontaneously without much obvious searching for expressions.',
+      description: 'Achieved a C1 Advanced level on the EF SET, demonstrating a high proficiency in English understanding a wide range of demanding, longer texts, and recognizing implicit meaning. Can express him fluently and spontaneously without much obvious searching for expressions.',
       iconClass: 'fas fa-language', // หรือ fas fa-language
       // badgeUrl: 'URL_TO_YOUR_EFSET_BADGE_IF_ANY', // ถ้ามี Digital Badge
       verifyUrl: 'https://cert.efset.org/DhE3Qo' // <--- ใส่ Link ตรวจสอบจริง ถ้ามี
