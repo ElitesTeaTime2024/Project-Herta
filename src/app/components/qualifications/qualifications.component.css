@@ -1,0 +1,128 @@
+/* qualifications.component.css */
+
+.qualifications-section {
+    background-color: var(--color-primary-dark); /* หรือสีที่คุณต้องการสำหรับ Section นี้ */
+    padding-bottom: 60px; /* ลด Padding ล่างเล็กน้อย */
+  }
+  
+  .qualifications-list {
+    display: flex;
+    flex-direction: column; /* เรียง Card แนวตั้ง */
+    gap: 30px;
+    max-width: 800px; /* กำหนดความกว้างสูงสุดของ Content */
+    margin: 0 auto; /* จัดกึ่งกลาง */
+  }
+  
+  .qualification-card {
+    background-color: var(--card-bg); /* หรือ var(--color-primary-medium) */
+    border-radius: var(--border-radius-md);
+    padding: 25px 30px;
+    display: flex; /* จัด Icon กับ Details แนวนอน */
+    align-items: flex-start; /* ให้ Icon อยู่ด้านบน ถ้า Description ยาว */
+    gap: 25px;
+    border: 1px solid var(--color-neutral-light);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+  }
+  
+  .qualification-icon-container {
+    font-size: 2.8rem; /* ขนาดไอคอนหลัก */
+    color: var(--primary-color); /* หรือ var(--color-accent-purple) */
+    padding-top: 5px; /* จัดตำแหน่งไอคอนเล็กน้อย */
+    flex-shrink: 0; /* ไม่ให้ไอคอนหดเมื่อเนื้อหาเยอะ */
+  }
+  
+  .qualification-details {
+    flex-grow: 1;
+  }
+  
+  .qualification-title {
+    font-size: 1.6rem;
+    color: var(--light-text);
+    margin-bottom: 8px;
+  }
+  
+  .qualification-level {
+    font-size: 1.1rem;
+    color: var(--primary-color); /* หรือ var(--color-accent-purple) */
+    font-weight: 500;
+  }
+  
+  .qualification-issuer,
+  .qualification-date {
+    font-size: 0.95rem;
+    color: var(--secondary-text);
+    margin-bottom: 10px;
+    display: flex;
+    align-items: center;
+  }
+  
+  .qualification-issuer i,
+  .qualification-date i {
+    margin-right: 8px;
+    color: var(--secondary-text); /* หรือ var(--primary-color) ที่อ่อนลง */
+    width: 18px; /* สำหรับ Alignment */
+    text-align: center;
+  }
+  
+  .qualification-description {
+    font-size: 0.95rem;
+    color: var(--light-text); /* สว่างกว่า secondary text เล็กน้อย */
+    line-height: 1.7;
+    margin-bottom: 20px;
+  }
+  
+  .qualification-links {
+    display: flex;
+    gap: 15px; /* ระยะห่างระหว่างปุ่ม */
+    flex-wrap: wrap; /* ให้ปุ่มตัดขึ้นบรรทัดใหม่บนจอเล็ก */
+  }
+  
+  .qualification-links .btn-sm {
+    padding: 8px 18px;
+    font-size: 0.9rem;
+  }
+  
+  .btn-primary-alt { /* ปุ่มสีสำรองสำหรับ Verify */
+    background-color: var(--color-accent-purple); /* หรือสีอื่นที่เหมาะสม */
+    color: #fff;
+  }
+  
+  .btn-primary-alt:hover {
+    filter: brightness(0.9);
+  }
+  
+  
+  /* --- Media Queries for Responsiveness --- */
+  @media screen and (max-width: 768px) {
+    .qualification-card {
+      flex-direction: column; /* บน Mobile ให้ Icon อยู่บน Details อยู่ล่าง */
+      align-items: center; /* จัด Icon ให้อยู่กลาง */
+      text-align: center;
+      padding: 20px;
+    }
+  
+    .qualification-icon-container {
+      margin-bottom: 15px;
+      padding-top: 0;
+    }
+  
+    .qualification-title {
+      font-size: 1.4rem;
+    }
+  
+    .qualification-issuer,
+    .qualification-date {
+      justify-content: center; /* จัด Icon กับ Text ให้อยู่กลาง */
+    }
+  
+    .qualification-links {
+      justify-content: center; /* จัดปุ่มให้อยู่กลาง */
+    }
+  }
+  
+  @media screen and (max-width: 480px) {
+    .qualification-level {
+      display: block; /* ให้ Level ขึ้นบรรทัดใหม่บนจอเล็กมาก */
+      margin-top: 5px;
+    }
+  }

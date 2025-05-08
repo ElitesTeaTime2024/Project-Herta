@@ -1,0 +1,117 @@
+.hero-section {
+    background-color: var(--dark-bg); /* Or a slightly different shade if needed */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh; /* Full viewport height */
+    padding-top: var(--navbar-height); /* Offset for fixed navbar */
+  }
+  
+  .hero-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 40px;
+  }
+  
+  .hero-content {
+    flex: 1;
+    color: var(--light-text);
+  }
+  
+  .hero-title {
+    font-size: 3.5rem;
+    font-weight: bold;
+    margin-bottom: 10px;
+    line-height: 1.2;
+  }
+  
+  .hero-title .highlight {
+    color: var(--primary-color);
+    display: block; /* To make it look like a sub-line */
+  }
+  
+  .hero-subtitle {
+    font-size: 1.1rem;
+    color: var(--secondary-text);
+    margin-bottom: 20px;
+  }
+  
+  .hero-introduction {
+    font-size: 1rem;
+    color: var(--light-text);
+    margin-bottom: 30px;
+    line-height: 1.8;
+  }
+  
+  .hero-introduction .role {
+    font-weight: bold;
+    font-size: 1.3rem;
+    color: var(--light-text);
+    display: block;
+    margin-top: 5px;
+    margin-bottom: 10px;
+  }
+  
+  .hero-contact-btn {
+    padding: 12px 25px;
+    font-size: 1.1rem;
+  }
+  
+  .hero-image-container {
+    flex-basis: 40%; /* Adjust as needed */
+    text-align: center;
+  }
+  
+  .hero-image {
+    max-width: 350px; /* Adjust as needed */
+    height: auto;
+    border-radius: 50%; /* Circular image like the example */
+    border: 5px solid var(--primary-color);
+    box-shadow: 0 0 20px rgba(255, 140, 0, 0.3);
+  }
+  
+  /* Responsive adjustments for hero */
+  @media (max-width: 768px) {
+    .hero-container {
+      flex-direction: column-reverse; /* Image on top on mobile */
+      text-align: center;
+    }
+    .hero-image-container {
+      margin-bottom: 30px;
+    }
+    .hero-title {
+      font-size: 2.8rem;
+    }
+  }
+
+  /* --- Media Queries for Tablets --- */
+@media screen and (max-width: 1024px) {
+  .hero-title {
+    font-size: 3rem; /* ลดขนาด Title */
+  }
+  .hero-introduction .role {
+    font-size: 1.2rem;
+  }
+  .hero-image {
+    max-width: 300px; /* ลดขนาดรูป Profile */
+  }
+}
+
+/* --- Media Queries for Mobile (เดิม) --- */
+@media screen and (max-width: 768px) {
+  .hero-container {
+    flex-direction: column-reverse;
+    text-align: center;
+  }
+  .hero-image-container {
+    margin-bottom: 30px;
+  }
+  .hero-title {
+    font-size: 2.5rem; /* ลดขนาด Title อีกสำหรับ Mobile */
+  }
+  .hero-image {
+    max-width: 250px;
+  }
+  /* ... (CSS เดิมอื่นๆ สำหรับ Mobile) ... */
+}

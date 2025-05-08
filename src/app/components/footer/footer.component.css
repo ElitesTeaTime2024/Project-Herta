@@ -1,0 +1,7 @@
+.footer-section {
+    background-color: #181a1e; /* Even darker for footer */
+    color: var(--secondary-text);
+    text-align: center;
+    padding: 30px 0;
+    font-size: 0.9rem;
+  }

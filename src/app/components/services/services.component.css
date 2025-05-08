@@ -1,0 +1,132 @@
+/* services.component.css */
+
+.services-section {
+  background-color: #1e2125; /* หรือ var(--color-primary-medium) หรือสีที่คุณต้องการ */
+}
+
+.services-intro {
+  text-align: center;
+  max-width: 700px; /* อาจจะกว้างขึ้นได้นิดหน่อย */
+  margin: 0 auto 50px auto; /* เพิ่ม Margin ด้านล่าง */
+  color: var(--secondary-text);
+}
+
+.services-grid {
+  display: grid;
+  /* ปรับให้แสดงผล 1-3 Columns ตามขนาดหน้าจอ */
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); /* Min 300px, max 1fr */
+  gap: 30px; /* หรือ 40px */
+  margin-bottom: 50px; /* เพิ่ม Margin ด้านล่าง */
+}
+
+.service-card {
+  background-color: var(--card-bg); /* หรือ var(--color-primary-light) */
+  border-radius: var(--border-radius-md);
+  overflow: hidden; /* สำคัญมากสำหรับ Thumbnail ที่อาจจะล้น */
+  display: flex;
+  flex-direction: column; /* เรียง Thumbnail ไว้บน เนื้อหาไว้ล่าง */
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  border: 1px solid var(--color-neutral-light); /* หรือสีที่เหมาะสม */
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+.service-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+}
+
+.service-thumbnail-container {
+  width: 100%;
+  height: 200px; /* กำหนดความสูงของ Thumbnail หรือใช้ aspect-ratio */
+  overflow: hidden; /* ป้องกันรูปภาพล้นถ้าขนาดไม่พอดี */
+  background-color: #333; /* Placeholder background color */
+}
+
+.service-thumbnail {
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* ทำให้รูปภาพเต็มพื้นที่ Container โดยไม่เสียสัดส่วน (อาจจะ Crop บางส่วน) */
+  /* หรือใช้ object-fit: contain; ถ้ารูปไม่ควรถูก Crop แต่จะมีพื้นที่ว่าง */
+  transition: transform 0.4s ease;
+}
+
+.service-card:hover .service-thumbnail {
+  transform: scale(1.05); /* Zoom รูปเล็กน้อยเมื่อ Hover ที่ Card */
+}
+
+.service-content {
+  padding: 25px; /* เพิ่ม Padding */
+  text-align: center; /* หรือ left ถ้าต้องการ */
+  flex-grow: 1; /* ทำให้ส่วน Content ขยายเต็มพื้นที่ที่เหลือ */
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* จัด Icon, Title ให้อยู่กลาง (ถ้า text-align: center) */
+}
+
+.service-icon {
+  font-size: 2.8rem; /* ปรับขนาดไอคอน */
+  color: var(--primary-color); /* หรือ var(--color-accent-blue) */
+  margin-bottom: 20px; /* เพิ่มระยะห่าง */
+}
+
+.service-title {
+  font-size: 1.6rem; /* ปรับขนาด Title */
+  margin-bottom: 15px; /* เพิ่มระยะห่าง */
+  color: var(--light-text);
+}
+
+.service-description {
+  font-size: 0.95rem;
+  color: var(--secondary-text);
+  margin-bottom: 20px; /* เพิ่มระยะห่าง (ถ้ามีปุ่ม Learn More) */
+  flex-grow: 1; /* ทำให้ Description ขยายเต็มพื้นที่ที่เหลือ ก่อนถึงปุ่ม */
+}
+
+/* (Optional) Styles for Learn More button */
+.service-content .btn-sm {
+  padding: 8px 15px;
+  font-size: 0.9rem;
+  margin-top: auto; /* ดันปุ่มลงไปอยู่ด้านล่างสุดของ Card content */
+}
+
+.services-cta {
+  text-align: center;
+  margin-top: 30px; /* ลด Margin ลงเล็กน้อย */
+}
+
+.services-grid {
+  display: grid;
+  /* Default to 3 columns on larger screens */
+  grid-template-columns: repeat(3, 1fr); /* หรือ auto-fit, minmax(300px, 1fr) ก็ยังใช้ได้ดี */
+  gap: 30px;
+  margin-bottom: 50px;
+}
+
+/* --- Media Queries for Tablets --- */
+@media screen and (max-width: 1024px) {
+  .services-grid {
+    /* แสดง 2 Columns บน Tablet */
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .service-title {
+    font-size: 1.4rem;
+  }
+  .service-thumbnail-container {
+    height: 180px; /* ลดความสูง Thumbnail เล็กน้อย */
+  }
+}
+
+/* --- Media Queries for Mobile (เดิม) --- */
+@media screen and (max-width: 768px) {
+  .services-grid {
+    /* แสดง 1 Column บน Mobile */
+    grid-template-columns: 1fr;
+  }
+  .service-title {
+    font-size: 1.3rem;
+  }
+  .service-thumbnail-container {
+    height: 200px; /* อาจจะกลับมาใช้ความสูงเดิม หรือปรับตามความเหมาะสม */
+  }
+  /* ... (CSS เดิมอื่นๆ สำหรับ Mobile) ... */
+}

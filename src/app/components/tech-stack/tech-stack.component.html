@@ -1,0 +1,32 @@
+<section id="tech-stack" class="tech-stack-section">
+  <div class="container">
+    <h2 class="section-title">MY TECH STACK</h2>
+    <p class="section-subtitle">Technologies & Tools I Work With</p>
+
+    <div class="tech-categories-container">
+      <div class="tech-category" *ngFor="let category of techCategories">
+        <h3 class="category-name">{{ category.name }}</h3>
+        <ul class="tech-stack-list">
+          <!-- ใช้ ng-container เพื่อไม่ให้สร้าง Element ที่ไม่จำเป็น ถ้า stack.officialUrl ไม่มีค่า -->
+          <ng-container *ngFor="let stack of category.stacks">
+            <li class="tech-stack-item">
+              <a *ngIf="stack.officialUrl" [href]="stack.officialUrl" target="_blank" rel="noopener noreferrer" class="stack-link-wrapper">
+                <span class="stack-icon">
+                  <i *ngIf="stack.iconClass" [class]="stack.iconClass"></i>
+                </span>
+                <span class="stack-name">{{ stack.name }}</span>
+              </a>
+              <!-- ถ้าไม่มี officialUrl ให้แสดงผลแบบปกติ (ไม่เป็นลิงก์) -->
+              <div *ngIf="!stack.officialUrl" class="stack-content-wrapper">
+                <span class="stack-icon">
+                  <i *ngIf="stack.iconClass" [class]="stack.iconClass"></i>
+                </span>
+                <span class="stack-name">{{ stack.name }}</span>
+              </div>
+            </li>
+          </ng-container>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>

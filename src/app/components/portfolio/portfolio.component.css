@@ -1,0 +1,116 @@
+/* portfolio.component.css หรือ past-work.component.css */
+
+.past-work-section { /* เปลี่ยนชื่อ Class */
+  background-color: var(--dark-bg); /* หรือ var(--color-primary-dark) */
+}
+
+.past-work-grid {
+  display: grid;
+  /* สามารถปรับจำนวน Columns ได้ตามต้องการ */
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); /* ให้ Card มีขนาด Min 320px */
+  gap: 30px; /* หรือ 40px */
+}
+
+.past-work-card {
+  background-color: var(--card-bg); /* หรือ var(--color-primary-medium) */
+  border-radius: var(--border-radius-md);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column; /* เรียง Thumbnail และ Content แนวตั้ง */
+  border: 1px solid var(--color-neutral-light);
+  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.15);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.past-work-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.25);
+}
+
+.past-work-thumbnail-container {
+  width: 100%;
+  height: 180px; /* ปรับความสูง Thumbnail ตามต้องการ */
+  overflow: hidden;
+  background-color: #444; /* Placeholder background */
+}
+
+.past-work-thumbnail {
+  width: 100%;
+  height: 100%;
+  object-fit: contain; /* หรือ 'cover' ถ้าต้องการให้เต็ม แต่ 'contain' จะเห็น Logo/ภาพครบ */
+  /* อาจจะเพิ่ม padding เล็กน้อยถ้า object-fit: contain แล้วรูปดูเล็กไป */
+  /* padding: 10px; */
+}
+
+.past-work-content {
+  padding: 20px 25px; /* ปรับ Padding */
+  flex-grow: 1; /* ให้ Content ขยายเต็มพื้นที่ที่เหลือ */
+  display: flex;
+  flex-direction: column;
+}
+
+.past-work-title {
+  font-size: 1.5rem; /* ปรับขนาด */
+  color: var(--light-text); /* หรือ var(--primary-color) */
+  margin-bottom: 8px;
+}
+
+.past-work-client {
+  font-size: 0.9rem;
+  color: var(--secondary-text);
+  margin-bottom: 15px;
+  display: flex;
+  align-items: center;
+}
+
+.past-work-client i {
+  margin-right: 8px;
+  color: var(--primary-color); /* หรือสีที่เหมาะสม */
+}
+
+.past-work-tech-tags {
+  margin-bottom: 15px;
+  display: flex;
+  flex-wrap: wrap; /* ให้ Tag ตัดขึ้นบรรทัดใหม่ได้ */
+  gap: 8px; /* ระยะห่างระหว่าง Tag */
+}
+
+.tech-tag {
+  background-color: var(--color-primary-light); /* หรือ var(--color-neutral-medium) */
+  color: var(--light-text); /* หรือ var(--primary-color) */
+  padding: 4px 10px;
+  border-radius: var(--border-radius-sm);
+  font-size: 0.8rem;
+  font-weight: 500;
+}
+
+.past-work-description {
+  font-size: 0.95rem;
+  color: var(--secondary-text); /* หรือ var(--light-text) ที่สว่างน้อยลง */
+  line-height: 1.7;
+  flex-grow: 1; /* ให้ Description ขยายเต็มพื้นที่ก่อนปุ่ม (ถ้ามี) */
+  margin-bottom: 15px; /* ถ้าไม่มีปุ่มด้านล่าง */
+}
+
+/* --- Media Queries --- */
+@media screen and (max-width: 1024px) {
+  .past-work-grid {
+    /* อาจจะยังคง 2 Columns หรือปรับตามความเหมาะสม */
+    /* grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); */
+  }
+  .past-work-title {
+    font-size: 1.35rem;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .past-work-grid {
+    grid-template-columns: 1fr; /* 1 Column บน Mobile */
+  }
+  .past-work-title {
+    font-size: 1.3rem;
+  }
+  .past-work-thumbnail-container {
+    height: 160px;
+  }
+}

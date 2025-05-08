@@ -1,0 +1,123 @@
+/* freelance.component.css หรือ tech-stack.component.css */
+
+.tech-stack-section { /* เปลี่ยนชื่อ Class */
+  background-color: #1e2125; /* หรือ var(--color-primary-medium) */
+  padding-bottom: 80px; /* เพิ่ม Padding ด้านล่างถ้าต้องการ */
+}
+
+.tech-categories-container {
+  display: grid;
+  /* ปรับจำนวน Columns ตามความเหมาะสม */
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 40px;
+}
+
+.tech-category {
+  background-color: var(--card-bg); /* หรือ var(--color-primary-light) */
+  padding: 25px;
+  border-radius: var(--border-radius-md);
+  border: 1px solid var(--color-neutral-light);
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+.category-name {
+  font-size: 1.6rem;
+  color: var(--primary-color); /* หรือ var(--color-accent-blue) */
+  margin-bottom: 20px;
+  padding-bottom: 10px;
+  border-bottom: 2px solid var(--color-neutral-medium);
+  text-align: left; /* หรือ center */
+}
+
+.tech-stack-list {
+  list-style: none;
+  padding: 0;
+}
+
+.tech-stack-item {
+  display: block; /* เปลี่ยนจาก flex เป็น block เพื่อให้ <a> ภายในขยายเต็ม */
+  /* padding: 12px 10px 12px 20px; <-- ย้าย Padding ไปใส่ใน Wrapper แทน */
+  /* font-size: 1.05rem; <-- ย้ายไปใส่ใน Wrapper */
+  /* color: var(--light-text); <-- ย้ายไปใส่ใน Wrapper */
+  border-bottom: 1px solid var(--color-neutral-dark);
+  transition: background-color 0.3s ease, transform 0.2s ease;
+  border-radius: var(--border-radius-sm);
+  margin-bottom: 5px;
+}
+
+.tech-stack-item:last-child {
+  border-bottom: none;
+}
+
+/* Wrapper สำหรับส่วนที่คลิกได้ (ถ้ามี URL) และส่วนที่คลิกไม่ได้ */
+.stack-link-wrapper,
+.stack-content-wrapper {
+  display: flex;
+  align-items: center;
+  padding: 12px 10px 12px 20px; /* Padding เดิมของ item */
+  font-size: 1.05rem;
+  color: var(--light-text);
+  text-decoration: none; /* สำหรับ <a> */
+  width: 100%;
+  height: 100%;
+  transition: color 0.3s ease; /* สำหรับสี Text ของ Link */
+}
+
+.tech-stack-item:hover {
+  background-color: var(--color-primary-light);
+  transform: translateX(3px); /* หรือตามต้องการ */
+  cursor: default; /* Default cursor สำหรับ <li> */
+}
+
+/* ทำให้ cursor เป็น pointer เมื่อ Hover บนส่วนที่เป็น Link จริงๆ */
+.tech-stack-item a.stack-link-wrapper {
+  cursor: pointer;
+}
+
+.tech-stack-item:hover .stack-link-wrapper,
+.tech-stack-item:hover .stack-content-wrapper {
+  color: var(--light-text); /* อาจจะไม่ต้องเปลี่ยน ถ้าสีพื้นหลังไม่ได้สว่างมาก */
+}
+
+.tech-stack-item:hover .stack-link-wrapper .stack-name,
+.tech-stack-item:hover .stack-content-wrapper .stack-name {
+  /* Optional: ถ้าต้องการให้ชื่อ Stack มีสีแตกต่างเมื่อ Hover */
+  /* color: var(--some-other-color-on-hover); */
+}
+
+
+.stack-icon {
+  margin-right: 12px;
+  font-size: 1.3rem;
+  width: 25px;
+  text-align: center;
+  color: var(--primary-color); /* หรือ var(--color-accent-blue) */
+  transition: transform 0.2s ease;
+}
+
+.stack-svg-icon {
+  width: 20px;
+  height: 20px;
+  margin-right: 12px;
+  object-fit: contain;
+}
+
+.stack-name {
+  flex-grow: 1;
+}
+
+/* --- Media Queries --- */
+@media screen and (max-width: 768px) {
+  .tech-categories-container {
+    grid-template-columns: 1fr; /* 1 Column บน Mobile */
+  }
+  .category-name {
+    font-size: 1.4rem;
+  }
+  .tech-stack-item {
+    font-size: 1rem;
+  }
+  .stack-icon {
+    font-size: 1.2rem;
+  }
+}

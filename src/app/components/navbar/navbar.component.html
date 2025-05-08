@@ -1,0 +1,29 @@
+<nav class="navbar" [class.scrolled]="isScrolled">
+  <div class="navbar-container">
+    <a href="#hero" class="navbar-logo" (click)="scrollTo('hero'); closeMobileMenu()">PT</a>
+
+    <!-- Hamburger Menu Icon (แสดงเฉพาะบน Mobile) -->
+    <div class="menu-icon" (click)="toggleMobileMenu()">
+      <i [class]="isMobileMenuOpen ? 'fas fa-times' : 'fas fa-bars'"></i>
+    </div>
+
+    <!-- Nav Menu (ปรับ Class สำหรับ Mobile) -->
+    <ul class="nav-menu" [class.active]="isMobileMenuOpen">
+      <li class="nav-item">
+        <a href="#hero" class="nav-link" [class.active]="activeSection === 'hero'" (click)="scrollTo('hero'); closeMobileMenu()">Home</a>
+      </li>
+      <li class="nav-item">
+        <a href="#tech-stack" class="nav-link" [class.active]="activeSection === 'tech-stack'" (click)="scrollTo('tech-stack'); closeMobileMenu()">Tech Stack</a>
+      </li>
+      <li class="nav-item">
+        <a href="#past-work" class="nav-link" [class.active]="activeSection === 'past-work'" (click)="scrollTo('past-work'); closeMobileMenu()">Past Work</a>
+      </li>
+      <li class="nav-item">
+        <a href="#qualifications" class="nav-link" [class.active]="activeSection === 'qualifications'" (click)="scrollTo('qualifications'); closeMobileMenu()">Qualifications</a>
+      </li>
+      <li class="nav-item">
+        <a href="#contact" class="nav-link" [class.active]="activeSection === 'contact'" (click)="scrollTo('contact'); closeMobileMenu()">Contact Us</a>
+      </li>
+    </ul>
+  </div>
+</nav>

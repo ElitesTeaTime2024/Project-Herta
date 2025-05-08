@@ -1,0 +1,33 @@
+<section id="services" class="services-section">
+  <div class="container">
+    <h2 class="section-title">SERVICES</h2>
+    <p class="section-subtitle">What Am I Providing</p>
+    <p class="services-intro">
+      <!-- (ข้อความ Intro เดิมของคุณ) -->
+      If you want any of the following service please go on the freelance section
+      there you can find some of the freelance platforms where I am available.
+    </p>
+
+    <div class="services-grid">
+      <!-- ใช้ *ngFor เพื่อ Loop แสดงผลข้อมูลจาก Array 'services' -->
+      <div class="service-card" *ngFor="let service of services">
+        <div class="service-thumbnail-container">
+          <img [src]="service.thumbnailUrl" [alt]="service.title" class="service-thumbnail">
+        </div>
+        <div class="service-content">
+          <div class="service-icon"><i [class]="service.iconClass"></i></div>
+          <h3 class="service-title">{{ service.title }}</h3>
+          <p class="service-description">{{ service.description }}</p>
+          <!-- (Optional) ปุ่มสำหรับดูรายละเอียดเพิ่มเติม
+          <a *ngIf="service.detailsLink" [href]="service.detailsLink" class="btn btn-sm btn-outline">Learn More</a>
+          -->
+        </div>
+      </div>
+    </div>
+
+    <div class="services-cta">
+      <a href="#freelance" class="btn">BUY SERVICE / HIRE ME</a>
+      <!-- ปรับข้อความปุ่มตามความเหมาะสม -->
+    </div>
+  </div>
+</section>

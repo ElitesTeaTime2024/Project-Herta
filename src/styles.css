@@ -1,1 +1,167 @@
-/* You can add global styles to this file, and also import other style files */
+/* src/styles.css */
+
+/* Import Google Font (ถ้ายังไม่ได้ทำ) */
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap');
+
+:root {
+  /* --- Character-Based Color Palette --- */
+  /* Primary Colors (Dominant, for backgrounds, large areas) */
+  --color-primary-dark: #1a1829; /* สีม่วงเข้ม/น้ำเงินเข้มจากเงามืดหรือส่วนที่มืดที่สุดของชุด */
+  --color-primary-medium: #2c2a42; /* สีม่วง/น้ำเงินกลางๆ จากชุด */
+  --color-primary-light: #4a4766; /* สีม่วง/น้ำเงินที่สว่างขึ้นมาหน่อย */
+
+  /* Secondary/Accent Colors (For highlights, buttons, active states) */
+  --color-accent-purple: #8c6dff; /* สีม่วงสว่างจากเอฟเฟกต์หรือเครื่องประดับ */
+  --color-accent-blue: #5c88ff;   /* สีน้ำเงินสว่างจากเอฟเฟกต์ */
+  --color-accent-gold: #ffd700;   /* ถ้ามีสีทองเป็น Accent (ปรับตามความเหมาะสม) */
+
+  /* Text Colors */
+  --color-text-light: #e0e0ff;    /* สีตัวอักษรอ่อน (อาจจะอมม่วง/น้ำเงินเล็กน้อย) */
+  --color-text-medium: #a0a0cc;   /* สีตัวอักษรกลางๆ */
+  --color-text-dark: var(--color-primary-dark); /* สำหรับใช้บนพื้นหลังสว่าง (ถ้ามี) */
+
+  /* Neutral Colors (For borders, subtle backgrounds) */
+  --color-neutral-dark: #22252a; /* สีเทาเข้ม (อาจจะปรับให้เข้ากับโทนม่วง/น้ำเงิน) */
+  --color-neutral-medium: #33363d;
+  --color-neutral-light: #4b4e57;
+
+  /* --- Original Theme Variables (เก็บไว้หรือปรับให้ใช้สีใหม่) --- */
+  /* คุณสามารถลบตัวแปรสีเก่าออก หรือจะ Map ให้มันใช้ค่าจากตัวแปรสีใหม่ก็ได้ */
+  /* ตัวอย่างการ Map: */
+  --primary-color: var(--color-accent-blue); /* ให้ปุ่มหลักใช้สีน้ำเงินสว่าง */
+  --dark-bg: var(--color-primary-dark);
+  --light-text: var(--color-text-light);
+  --secondary-text: var(--color-text-medium);
+  --card-bg: var(--color-primary-medium);
+
+  /* --- Other Global Variables --- */
+  --container-width: 1100px;
+  --navbar-height: 70px;
+  --border-radius-sm: 4px;
+  --border-radius-md: 8px;
+}
+
+/* --- Reset and Base Styles --- */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: 'Roboto', sans-serif;
+  line-height: 1.6;
+  background-color: var(--dark-bg); /* ใช้ตัวแปรสีใหม่ */
+  color: var(--light-text);      /* ใช้ตัวแปรสีใหม่ */
+  scroll-behavior: smooth;
+}
+
+a {
+  text-decoration: none;
+  color: var(--primary-color); /* ใช้ตัวแปรสีใหม่ */
+}
+
+ul {
+  list-style: none;
+}
+
+/* ... (ส่วนที่เหลือของ styles.css ที่เราเคยทำไว้ เช่น .container, section, .section-title, .btn) ... */
+/* ให้แน่ใจว่าส่วนเหล่านี้ก็ใช้ CSS Variables ใหม่ด้วย */
+
+.container {
+  max-width: var(--container-width);
+  margin: auto;
+  overflow: hidden;
+  padding: 0 20px;
+}
+
+section {
+  padding: 80px 0;
+  min-height: 80vh;
+}
+
+.section-title {
+  text-align: center;
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+  color: var(--light-text); /* ใช้ตัวแปร */
+  position: relative;
+  padding-bottom: 10px;
+}
+
+.section-title::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 80px;
+  height: 4px;
+  background-color: var(--primary-color); /* ใช้ตัวแปร */
+}
+
+.section-subtitle {
+  text-align: center;
+  font-size: 1.1rem;
+  color: var(--secondary-text); /* ใช้ตัวแปร */
+  margin-bottom: 40px;
+}
+
+.btn {
+  display: inline-block;
+  background: var(--primary-color); /* ใช้ตัวแปร */
+  color: #fff; /* หรือ var(--color-text-on-primary) ถ้ามี */
+  padding: 10px 20px;
+  border: none;
+  border-radius: var(--border-radius-sm); /* ใช้ตัวแปร */
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  font-weight: 500;
+}
+
+.btn:hover {
+  /* อาจจะต้องมีตัวแปรสำหรับ Hover state เช่น var(--primary-color-hover) */
+  filter: brightness(0.9);
+}
+
+.btn-outline {
+  background: transparent;
+  border: 2px solid var(--primary-color); /* ใช้ตัวแปร */
+  color: var(--primary-color); /* ใช้ตัวแปร */
+}
+
+.btn-outline:hover {
+  background: var(--primary-color); /* ใช้ตัวแปร */
+  color: #fff; /* หรือ var(--color-text-on-primary) */
+}
+
+/* --- Media Queries for Tablets --- */
+@media screen and (max-width: 1024px) {
+  /* (Optional) Adjust base font size for tablets if needed */
+  /* html {
+    font-size: 90%; // Example: reduce base font size
+  } */
+
+  .container {
+    /* อาจจะลด max-width ของ container เล็กน้อยถ้าต้องการ */
+    /* max-width: 960px; */
+  }
+
+  .section-title {
+    font-size: 2.2rem; /* ลดขนาด Title เล็กน้อย */
+  }
+
+  section {
+    padding: 60px 0; /* ลด Padding ของ Section เล็กน้อย */
+  }
+}
+
+/* --- Media Queries for Mobile (เดิม) --- */
+@media screen and (max-width: 768px) {
+  /* ... (CSS เดิมสำหรับ Mobile) ... */
+  .section-title {
+    font-size: 2rem; /* ลดขนาด Title อีกสำหรับ Mobile */
+  }
+  /* ... */
+}
+

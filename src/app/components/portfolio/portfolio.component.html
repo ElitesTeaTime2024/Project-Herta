@@ -1,0 +1,25 @@
+<section id="past-work" class="past-work-section"> <!-- เปลี่ยน ID และ Class section -->
+  <div class="container">
+    <h2 class="section-title">PAST WORK</h2> <!-- เปลี่ยน Title -->
+    <p class="section-subtitle">Key Projects & Experience</p> <!-- เปลี่ยน Subtitle -->
+
+    <div class="past-work-grid">
+      <div class="past-work-card" *ngFor="let work of pastWorks">
+        <div class="past-work-thumbnail-container" *ngIf="work.thumbnailUrl">
+          <img [src]="work.thumbnailUrl" [alt]="work.title + ' thumbnail'" class="past-work-thumbnail">
+        </div>
+        <div class="past-work-content">
+          <h3 class="past-work-title">{{ work.title }}</h3>
+          <p class="past-work-client" *ngIf="work.clientOrCompany">
+            <i class="fas fa-building"></i> {{ work.clientOrCompany }}
+          </p>
+          <div class="past-work-tech-tags">
+            <span *ngFor="let tech of work.technologies" class="tech-tag">{{ tech }}</span>
+          </div>
+          <p class="past-work-description">{{ work.description }}</p>
+          <a *ngIf="work.projectUrl" [href]="work.projectUrl" target="_blank" rel="noopener noreferrer" class="btn btn-sm btn-outline">View Details</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
